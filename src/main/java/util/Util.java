@@ -11,10 +11,11 @@ public class Util {
 			JSONObject erro = json.getJSONObject("Error");
 			dados= erro.getString("Message");
 //			System.out.println(dados);
-		}else {
+		}else if(! json.isNull("Message")){
 			dados = json.getString("Message");
 //			System.out.println(dados);
-		}
+		}else 
+			dados = "not found";
 		return dados;
 	}
 	

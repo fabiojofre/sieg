@@ -145,7 +145,7 @@ public class Principal extends JFrame {
 				btnIniciar.setEnabled(false);
 				btnParar.setEnabled(true);
 				btnSair.setEnabled(false);
-				lbStatus.setText("Servi�o Iniciado!");
+				lbStatus.setText("Servico Iniciado!");
 
 				atividade = true;
 				controle(minutos);

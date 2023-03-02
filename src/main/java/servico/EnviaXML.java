@@ -8,9 +8,7 @@ import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
 import conexao.ConexaoServidor;
-import util.Exemplos;
 import util.Util;
-import vrrecifeframework.classes.VrProperties;
 public class EnviaXML {
 	
 	private String NOTASAIDA = "SELECT id, id_situacaonfe,id_notasaida, xml FROM notasaidanfe WHERE id_situacaonfe = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 LIMIT 10";
@@ -44,6 +42,7 @@ public class EnviaXML {
 				JSONObject msg = service.enviaXML(rs.getString("xml"));	
 			
 			String mensagem = Util.retornaResultadoConsulta(msg);
+			
 			if(mensagem.equals("Importado com sucesso")) {
 				System.out.println("Nota: "+rs.getInt("id_notasaida")+" "+mensagem);
 				
@@ -57,11 +56,12 @@ public class EnviaXML {
 				 cont ++;
 			}else {
 				System.out.println("Retorno: "+mensagem);
+				System.out.println(msg);
 			}
 				
 			}
 			if(cont >0) {
-			mensagemSaida = cont+" Notas Fiscais importadas!";
+			mensagemSaida = cont+" Notas de saida importadas!";
 			System.out.println(mensagemSaida);
 			}
 			
@@ -111,7 +111,7 @@ public class EnviaXML {
 					
 				}
 				if(cont >0) {
-				mensagemSaida = cont+" Cupons Fiscais importadas!";
+				mensagemSaida = cont+" Cupons Fiscais importados!";
 				System.out.println(mensagemSaida);
 				}
 				
@@ -161,7 +161,7 @@ public class EnviaXML {
 				
 			}
 			if(cont >0) {
-			mensagemSaida = cont+" Notas Fiscais importadas!";
+			mensagemSaida = cont+" Notas de entrada importadas!";
 			System.out.println(mensagemSaida);
 			}
 			
@@ -170,7 +170,7 @@ public class EnviaXML {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			if(e.toString().contains("not found")) {
-				JOptionPane.showMessageDialog(null, "Verifique se os dados dos par�metros est�o corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
+				JOptionPane.showMessageDialog(null, "Verifique se os dados dos parametros estao corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
 				System.out.println(e);
 				System.exit(0);	
 			}else 
