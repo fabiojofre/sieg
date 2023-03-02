@@ -8,6 +8,7 @@ import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
 import conexao.ConexaoServidor;
+import util.Exemplos;
 import util.Util;
 import vrrecifeframework.classes.VrProperties;
 public class EnviaXML {
@@ -30,10 +31,8 @@ public class EnviaXML {
 				
 	public void enviaNotaSaida() {
 		try {
-			con.abrirConexao(VrProperties.getString("database.ip"), VrProperties.getInt("database.porta"), VrProperties.getString("database.nome"), "postgres", "VrPost@Server");
-			String email = VrProperties.getString("sieg.email");
-			String apikey = VrProperties.getString("sieg.apikey");
-			Servico servico = new Servico();
+			con.abrirConexao(Config.host, Config.porta, Config.base, Config.usuario, Config.senha);
+			Service service = new Service();
 			
 			
 			stmt = con.prepareStatement(NOTASAIDA);
@@ -42,7 +41,7 @@ public class EnviaXML {
 			int cont = 0;
 			while(rs.next()){
 			
-			JSONObject msg = servico.enviaXML(apikey, email, rs.getString("xml"));	
+				JSONObject msg = service.enviaXML(rs.getString("xml"));	
 			
 			String mensagem = Util.retornaResultadoConsulta(msg);
 			if(mensagem.equals("Importado com sucesso")) {
@@ -71,7 +70,7 @@ public class EnviaXML {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			if(e.toString().contains("not found")) {
-				JOptionPane.showMessageDialog(null, "Verifique se os dados dos parâmetros estão corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
+				JOptionPane.showMessageDialog(null, "Verifique se os dados dos parametros estao corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
 				System.out.println(e);
 				System.exit(0);	
 			}else 
@@ -81,10 +80,9 @@ public class EnviaXML {
 		
 	public void enviaCupom() {
 			try {
-				con.abrirConexao(VrProperties.getString("database.ip"), VrProperties.getInt("database.porta"), VrProperties.getString("database.nome"), "postgres", "VrPost@Server");
-				String email = VrProperties.getString("sieg.email");
-				String apikey = VrProperties.getString("sieg.apikey");
-				Servico servico = new Servico();
+				con.abrirConexao(Config.host, Config.porta, Config.base, Config.usuario, Config.senha);
+				Service service = new Service();
+				
 				
 				
 				stmt = con.prepareStatement(NFCE);
@@ -93,7 +91,7 @@ public class EnviaXML {
 				int cont = 0;
 				while(rs.next()){
 				
-				JSONObject msg = servico.enviaXML(apikey, email, rs.getString("xml"));	
+					JSONObject msg = service.enviaXML(rs.getString("xml"));
 				
 				String mensagem = Util.retornaResultadoConsulta(msg);
 				if(mensagem.equals("Importado com sucesso")) {
@@ -122,7 +120,7 @@ public class EnviaXML {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 				if(e.toString().contains("not found")) {
-					JOptionPane.showMessageDialog(null, "Verifique se os dados dos parâmetros estão corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
+					JOptionPane.showMessageDialog(null, "Verifique se os dados dos parï¿½metros estï¿½o corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
 					System.out.println(e);
 					System.exit(0);	
 				}else 
@@ -133,10 +131,8 @@ public class EnviaXML {
 	
 	public void enviaNotaEntrada() {
 		try {
-			con.abrirConexao(VrProperties.getString("database.ip"), VrProperties.getInt("database.porta"), VrProperties.getString("database.nome"), "postgres", "VrPost@Server");
-			String email = VrProperties.getString("sieg.email");
-			String apikey = VrProperties.getString("sieg.apikey");
-			Servico servico = new Servico();
+			con.abrirConexao(Config.host, Config.porta, Config.base, Config.usuario, Config.senha);
+			Service service = new Service();
 			
 			
 			stmt = con.prepareStatement(NOTAENTRADA);
@@ -145,7 +141,7 @@ public class EnviaXML {
 			int cont = 0;
 			while(rs.next()){
 			
-			JSONObject msg = servico.enviaXML(apikey, email, rs.getString("xml"));	
+			JSONObject msg = service.enviaXML(rs.getString("xml"));
 			
 			String mensagem = Util.retornaResultadoConsulta(msg);
 			if(mensagem.equals("Importado com sucesso")) {
@@ -174,7 +170,7 @@ public class EnviaXML {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			if(e.toString().contains("not found")) {
-				JOptionPane.showMessageDialog(null, "Verifique se os dados dos parâmetros estão corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
+				JOptionPane.showMessageDialog(null, "Verifique se os dados dos parï¿½metros estï¿½o corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
 				System.out.println(e);
 				System.exit(0);	
 			}else 

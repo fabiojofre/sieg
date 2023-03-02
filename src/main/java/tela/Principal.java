@@ -23,6 +23,7 @@ import javax.swing.WindowConstants;
 import javax.swing.border.EmptyBorder;
 
 import servico.EnviaXML;
+import servico.ServicoConfig;
 import vrrecifeframework.classes.VrProperties;
 
 
@@ -42,9 +43,11 @@ public class Principal extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					ServicoConfig s = new ServicoConfig();
 					Principal frame = new Principal();
 					frame.setLocationRelativeTo(null);
 					frame.setVisible(true);
+					s.trataConfig();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -61,7 +64,7 @@ public class Principal extends JFrame {
 	Timer timer;
 	boolean atividade = false;
 	// variavel properties
-	VrProperties vr = new VrProperties();
+
 	int minutos;
 	private final JLabel lbStatus_1 = new JLabel("");
 
@@ -92,7 +95,7 @@ public class Principal extends JFrame {
 		lblNewLabel.setBounds(114, 0, 178, 28);
 		desktopPane.add(lblNewLabel);
 		
-		//------ O Icone na bandeja do relógio ----------
+		//------ O Icone na bandeja do relï¿½gio ----------
 		if(SystemTray.isSupported() == true) {
 			
 			setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
@@ -102,7 +105,7 @@ public class Principal extends JFrame {
 
 
 		iconeBandeja.setImageAutoSize(true);
-		//iconeBandeja.displayMessage(getWarningString(), "O Integrador está em execução!!", TrayIcon.MessageType.WARNING);
+		//iconeBandeja.displayMessage(getWarningString(), "O Integrador estï¿½ em execuï¿½ï¿½o!!", TrayIcon.MessageType.WARNING);
 		PopupMenu menuFlutuante = new PopupMenu();
 		
 		MenuItem mostrar = new MenuItem("Mostrar");
@@ -133,16 +136,16 @@ public class Principal extends JFrame {
 			e1.printStackTrace();
 		}
 		
-		//--------- fim do código da bandeja do relógio -------
+		//--------- fim do cï¿½digo da bandeja do relï¿½gio -------
 		
 		
-		// evento ao clicar no botão Iniciar
+		// evento ao clicar no botï¿½o Iniciar
 		btnIniciar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnIniciar.setEnabled(false);
 				btnParar.setEnabled(true);
 				btnSair.setEnabled(false);
-				lbStatus.setText("Serviço Iniciado!");
+				lbStatus.setText("Serviï¿½o Iniciado!");
 
 				atividade = true;
 				controle(minutos);
@@ -151,7 +154,7 @@ public class Principal extends JFrame {
 			}
 		});
 
-		// evento ao clicar no botão Parar
+		// evento ao clicar no botï¿½o Parar
 		btnParar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				btnIniciar.setEnabled(true);
@@ -196,7 +199,7 @@ public class Principal extends JFrame {
 		timer.schedule(new controleTask(), 0, minutos * 1000);
 	}
 
-	// Classe de controle de ações do timer
+	// Classe de controle de aï¿½ï¿½es do timer
 	class controleTask extends TimerTask {
 		public void run() {
 			if (atividade == true) {

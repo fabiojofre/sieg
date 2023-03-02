@@ -1,0 +1,55 @@
+package util;
+
+public class Exemplos {
+
+	public static String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><nfeProc xmlns=\"http://www.portalfiscal.inf.br/nfe\" versao=\"4.00\"><NFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"><infNFe Id=\"NFe43200808865810000112651020000000039102000056\" versao=\"4.00\"><ide><cUF>43</cUF><cNF>10200005</cNF><natOp>Venda de mercadoria adquirida ou recebida de terceiros</natOp><mod>65</mod><serie>102</serie><nNF>3</nNF><dhEmi>2020-08-25T08:00:00-03:00</dhEmi><tpNF>1</tpNF><idDest>1</idDest><cMunFG>4318705</cMunFG><tpImp>4</tpImp><tpEmis>9</tpEmis><cDV>6</cDV><tpAmb>1</tpAmb><finNFe>1</finNFe><indFinal>1</indFinal><indPres>1</indPres><procEmi>0</procEmi><verProc>3.19.1-149</verProc><dhCont>2020-08-25T08:00:00-03:00</dhCont><xJust>Problemas tecnicos</xJust></ide><emit><CNPJ>08865810000112</CNPJ><xNome>VERA M DA SILVA REINHEIMER &amp; CIA LTDA</xNome><enderEmit><xLgr>RUA EUGENIO BERGER</xLgr><nro>470</nro><xBairro>SCHARLAU</xBairro><cMun>4318705</cMun><xMun>SAO LEOPOLDO</xMun><UF>RS</UF><CEP>93125480</CEP><cPais>1058</cPais><xPais>BRASIL</xPais></enderEmit><IE>1240244859</IE><CRT>3</CRT></emit><det nItem=\"1\"><prod><cProd>56</cProd><cEAN>0000000000567</cEAN><xProd>P.MORTADELA-2</xProd><NCM>16010000</NCM><CEST>1707800</CEST><cBenef>RS052403</cBenef><CFOP>5405</CFOP><uCom>KG0001</uCom><qCom>0.0210</qCom><vUnCom>7.142857</vUnCom><vProd>0.15</vProd><cEANTrib>0000000000567</cEANTrib><uTrib>KG0001</uTrib><qTrib>0.0210</qTrib><vUnTrib>7.142857</vUnTrib><indTot>1</indTot></prod><imposto><ICMS><ICMS60><orig>0</orig><CST>60</CST><vBCSTRet>0.00</vBCSTRet><pST>18.00</pST><vICMSSTRet>0.00</vICMSSTRet><vBCFCPSTRet>0.00</vBCFCPSTRet><pFCPSTRet>0.00</pFCPSTRet><vFCPSTRet>0.00</vFCPSTRet><pRedBCEfet>0.00</pRedBCEfet><vBCEfet>0.00</vBCEfet><pICMSEfet>18.00</pICMSEfet><vICMSEfet>0.00</vICMSEfet></ICMS60></ICMS><PIS><PISAliq><CST>01</CST><vBC>0.15</vBC><pPIS>1.65</pPIS><vPIS>0.00</vPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>0.15</vBC><pCOFINS>7.60</pCOFINS><vCOFINS>0.01</vCOFINS></COFINSAliq></COFINS></imposto></det><det nItem=\"2\"><prod><cProd>293</cProd><cEAN>0000000002936</cEAN><xProd>P.PAO FRANCES</xProd><NCM>19052090</NCM><CEST>1704600</CEST><cBenef/><CFOP>5102</CFOP><uCom>KG0001</uCom><qCom>0.2390</qCom><vUnCom>6.359833</vUnCom><vProd>1.52</vProd><cEANTrib>0000000002936</cEANTrib><uTrib>KG0001</uTrib><qTrib>0.2390</qTrib><vUnTrib>6.359833</vUnTrib><indTot>1</indTot></prod><imposto><ICMS><ICMS40><orig>0</orig><CST>40</CST></ICMS40></ICMS><PIS><PISAliq><CST>01</CST><vBC>1.52</vBC><pPIS>1.65</pPIS><vPIS>0.03</vPIS></PISAliq></PIS><COFINS><COFINSAliq><CST>01</CST><vBC>1.52</vBC><pCOFINS>7.60</pCOFINS><vCOFINS>0.12</vCOFINS></COFINSAliq></COFINS></imposto></det><det nItem=\"3\"><prod><cProd>64</cProd><cEAN>0000000000642</cEAN><xProd>P.QUEIJO-MUSSARELA</xProd><NCM>04061010</NCM><cBenef>RS052438</cBenef><CFOP>5102</CFOP><uCom>KG0001</uCom><qCom>0.0240</qCom><vUnCom>30.000000</vUnCom><vProd>0.72</vProd><cEANTrib>0000000000642</cEANTrib><uTrib>KG0001</uTrib><qTrib>0.0240</qTrib><vUnTrib>30.000000</vUnTrib><indTot>1</indTot></prod><imposto><ICMS><ICMS00><orig>0</orig><CST>00</CST><modBC>3</modBC><vBC>0.72</vBC><pICMS>18.00</pICMS><vICMS>0.13</vICMS></ICMS00></ICMS><PIS><PISNT><CST>06</CST></PISNT></PIS><COFINS><COFINSNT><CST>06</CST></COFINSNT></COFINS></imposto></det><total><ICMSTot><vBC>0.72</vBC><vICMS>0.13</vICMS><vICMSDeson>0.00</vICMSDeson><vFCP>0.00</vFCP><vBCST>0.00</vBCST><vST>0.00</vST><vFCPST>0.00</vFCPST><vFCPSTRet>0.00</vFCPSTRet><vProd>2.39</vProd><vFrete>0.00</vFrete><vSeg>0.00</vSeg><vDesc>0.00</vDesc><vII>0.00</vII><vIPI>0.00</vIPI><vIPIDevol>0.00</vIPIDevol><vPIS>0.03</vPIS><vCOFINS>0.13</vCOFINS><vOutro>0.00</vOutro><vNF>2.39</vNF></ICMSTot></total><transp><modFrete>9</modFrete></transp><pag><detPag><indPag>0</indPag><tPag>01</tPag><vPag>5.00</vPag></detPag><vTroco>2.61</vTroco></pag></infNFe><infNFeSupl><qrCode><![CDATA[https://www.sefaz.rs.gov.br/NFCE/NFCE-COM.aspx?p=43200808865810000112651020000000039102000056|2|1|25|2.39|6c7747426370725458464335724871653172514a724b395a6f626f3d|1|5B9085C3B214F866749DBB514834FE63485CD62E]]></qrCode><urlChave>www.sefaz.rs.gov.br/nfce/consulta</urlChave></infNFeSupl><Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><SignedInfo><CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\"/><SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\"/><Reference URI=\"#NFe43200808865810000112651020000000039102000056\"><Transforms><Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\"/><Transform Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\"/></Transforms><DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\"/><DigestValue>lwGBcprTXFC5rHqe1rQJrK9Zobo=</DigestValue></Reference></SignedInfo><SignatureValue>XrBxV7iZ+tKawl5JYdoxSLzu7Se/UEGZqD6us2s9Z1i6p3ihT6W25I7NPTueomRGGYoxen3n/2OZ\r\n"
+			+ "1SBsVbdrZCToaEGYzVVpSS5pgT/wIIT8SJh5XgmAsp+7137xYLH3WggeTEEXazSyLmyGJBslomNP\r\n"
+			+ "DLNEn1RZnNUfJWYlTAaflV+UEHHCCFNYpbOCax1Yvhl6CWDgAN71N98OzVijjkICv/8JDWHQDxO3\r\n"
+			+ "6OJbwRBg3Oht9h84eFMXbEf3dd2uYfrhnc/MryGZ/A6aPrjPcuzuVhLLqAVGFxZFGdADOB+Sa5Rl\r\n"
+			+ "iQwHKUV6xhYcu/gZ7MiUf2k/WRQAjLI6So6qag==</SignatureValue><KeyInfo><X509Data><X509Certificate>MIIHujCCBaKgAwIBAgIIfD1hLCGeSwEwDQYJKoZIhvcNAQELBQAwdjELMAkGA1UEBhMCQlIxEzAR\r\n"
+			+ "BgNVBAoTCklDUC1CcmFzaWwxNjA0BgNVBAsTLVNlY3JldGFyaWEgZGEgUmVjZWl0YSBGZWRlcmFs\r\n"
+			+ "IGRvIEJyYXNpbCAtIFJGQjEaMBgGA1UEAxMRQUMgU0FGRVdFQiBSRkIgdjUwHhcNMjAwMjE0MTIz\r\n"
+			+ "MzU1WhcNMjEwMjE0MTIzMzU1WjCB7jELMAkGA1UEBhMCQlIxEzARBgNVBAoTCklDUC1CcmFzaWwx\r\n"
+			+ "CzAJBgNVBAgTAlJTMRUwEwYDVQQHEwxTP08gTEVPUE9MRE8xNjA0BgNVBAsTLVNlY3JldGFyaWEg\r\n"
+			+ "ZGEgUmVjZWl0YSBGZWRlcmFsIGRvIEJyYXNpbCAtIFJGQjEWMBQGA1UECxMNUkZCIGUtQ05QSiBB\r\n"
+			+ "MTEXMBUGA1UECxMOMTg5Mjk5MjAwMDAxNTQxPTA7BgNVBAMTNFZFUkEgTSBEQSBTSUxWQSBSRUlO\r\n"
+			+ "SEVJTUVSIEUgQ0lBIExUREE6MDg4NjU4MTAwMDAxMTIwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw\r\n"
+			+ "ggEKAoIBAQDKJoZOG2gZun6kw/cmsikxBwZ6DEixDunXJ95CN7BBoJKu64ihzWGMphLELlRrHgZ9\r\n"
+			+ "uhDRhYRO5jNuUX7z+BX30u8+mtPvaA5EpAnzcKnZf1JLF4tj9cwSj9VRpuYY6nsVVCxi1n3E/jLP\r\n"
+			+ "D0SVvfUsvo0Kxupf7Hw+7CChdixO+O0j7GzBKEPTWYwSQmOzW1obv3KDPIVZmg83XxVoHP0jKzLw\r\n"
+			+ "iasvlsuSB4KVWqoFqsVUbtnV+WRHv++S5wFhNCULNHbfYxpSJUCYqlUELCRCY31djR6ISdlkV6IS\r\n"
+			+ "iNQ7zYdC8nlRa0VLXSe2uRk9Xxpn7IzQ/JHa3s61BNodRsnBAgMBAAGjggLRMIICzTAfBgNVHSME\r\n"
+			+ "GDAWgBQpXkvVRky7/hanY8EdxCby3djzBTAOBgNVHQ8BAf8EBAMCBeAwbQYDVR0gBGYwZDBiBgZg\r\n"
+			+ "TAECATMwWDBWBggrBgEFBQcCARZKaHR0cDovL3JlcG9zaXRvcmlvLmFjc2FmZXdlYi5jb20uYnIv\r\n"
+			+ "YWMtc2FmZXdlYnJmYi9hYy1zYWZld2ViLXJmYi1wYy1hMS5wZGYwga4GA1UdHwSBpjCBozBPoE2g\r\n"
+			+ "S4ZJaHR0cDovL3JlcG9zaXRvcmlvLmFjc2FmZXdlYi5jb20uYnIvYWMtc2FmZXdlYnJmYi9sY3It\r\n"
+			+ "YWMtc2FmZXdlYnJmYnY1LmNybDBQoE6gTIZKaHR0cDovL3JlcG9zaXRvcmlvMi5hY3NhZmV3ZWIu\r\n"
+			+ "Y29tLmJyL2FjLXNhZmV3ZWJyZmIvbGNyLWFjLXNhZmV3ZWJyZmJ2NS5jcmwwgYsGCCsGAQUFBwEB\r\n"
+			+ "BH8wfTBRBggrBgEFBQcwAoZFaHR0cDovL3JlcG9zaXRvcmlvLmFjc2FmZXdlYi5jb20uYnIvYWMt\r\n"
+			+ "c2FmZXdlYnJmYi9hYy1zYWZld2VicmZidjUucDdiMCgGCCsGAQUFBzABhhxodHRwOi8vb2NzcC5h\r\n"
+			+ "Y3NhZmV3ZWIuY29tLmJyMIHBBgNVHREEgbkwgbaBG01FUkNBRE9SRUlOSEVJTUVSQEdNQUlMLkNP\r\n"
+			+ "TaApBgVgTAEDAqAgEx5WRVJBIE1BUklBIERBIFNJTFZBIFJFSU5IRUlNRVKgGQYFYEwBAwOgEBMO\r\n"
+			+ "MDg4NjU4MTAwMDAxMTKgOAYFYEwBAwSgLxMtMDYwMzE5NjM0MzI0Njk3NDAwNDAwMDAwMDAwMDAw\r\n"
+			+ "MDAwMDAwMDAwMDAwMDAwoBcGBWBMAQMHoA4TDDAwMDAwMDAwMDAwMDAdBgNVHSUEFjAUBggrBgEF\r\n"
+			+ "BQcDAgYIKwYBBQUHAwQwCQYDVR0TBAIwADANBgkqhkiG9w0BAQsFAAOCAgEAOqbb6T16LP6nxuUz\r\n"
+			+ "14iwZZexlc4W/J+XBrGSX84pVjagY2+5I6tLckJ2NBfk/M5fbFTKExXheaUhFfDNlqceWH8yIxvg\r\n"
+			+ "CAQL5dYlBRjuLBLMhTComkLPjTeeV517OxcQ7fxazZ8CTVy+LHX8OKd0vz0GFRYqllk+afGjZqN7\r\n"
+			+ "RPQ28o7Favou+Sn+zp0F8zjnZ3hHoMsPEVv4/xo7bK8I5BB3wLHNgYYuekIH7bO42twtfPugf37K\r\n"
+			+ "fl9OOAWoCWFgcn17+LdNLGFsr5D7p/vHwhbqwR+nusALjmNBbpbhMnVR6d5C7oH1iIxshzD+XqMM\r\n"
+			+ "FMlsEJzW4fT75Xj83DPgyOWvHAqqSZvtA6LZhbiZ3UEZHz0wkgu6rWem3GM7QtAzeB9y4+0hIvM4\r\n"
+			+ "tXyqTmnCUwDZq6WY5hNN8Ij+qWI3D+DM6+C2n6yXOapb14t+OcaFUK8UA3Hzpnw62CEEF0sX3wpT\r\n"
+			+ "LOY3YbXUg6SMjs24A991aqOnmZYG2+lVx3i7cZagx7+ZsWccdjpXCKDBoQPyDmz3LmwjF7vHe8lq\r\n"
+			+ "L2mqgevfT9z5KX01KsDLJQDWkCyy/xtNoVyqScFlpCHBYs85J1rNCyBF48DLpJXzdf1ikmciZxyT\r\n"
+			+ "noM0f8HmLVcDR0+8NLU7z9b/B/unQa9n3C+gpVxqJjXptmTlOC+CZX/S6Cs=</X509Certificate></X509Data></KeyInfo></Signature></NFe><protNFe versao=\"4.00\"><infProt Id=\"ID\"><tpAmb>1</tpAmb><verAplic>3.19.1-149</verAplic><chNFe>43200808865810000112651020000000039102000056</chNFe><dhRecbto>2020-08-25T15:49:09-03:00</dhRecbto><nProt>143201049379484</nProt><digVal>lwGBcprTXFC5rHqe1rQJrK9Zobo=</digVal><cStat>100</cStat><xMotivo>Autorizado o uso da NF-e</xMotivo></infProt></protNFe></nfeProc>";
+	
+	public static String erro = "{\r\n"
+			+ "  \"Error\": {\r\n"
+			+ "    \"Status\": \"Erro\",\r\n"
+			+ "    \"Message\": \"Not Valid Account: testisover\"\r\n"
+			+ "  }\r\n"
+			+ "}";
+	
+	public static String sucesso = "{\r\n"
+			+ "	\"Message\": \"Importado comsucesso\"\r\n"
+			+ "}";
+}
