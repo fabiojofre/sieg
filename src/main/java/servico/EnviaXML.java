@@ -17,7 +17,7 @@ public class EnviaXML {
 	private String NOTAENTRADA = "SELECT id, id_situacaonfe,numeronota, xml FROM notaentradanfe WHERE id_situacaonfe = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 LIMIT 10";
 	private String UPDATE_NOTAENTRADA = "update notaentradanfe set cofre = 1 where id = ?";
 	
-	private String NFCE ="SELECT id, id_situacaonfce,id_venda, xml FROM pdv.vendanfce WHERE id_situacaonfce = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 LIMIT 10";
+	private String NFCE ="SELECT id, id_situacaonfce,id_venda, xml FROM pdv.vendanfce WHERE id_situacaonfce = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 DESC LIMIT 10";
 	private String UPDATE_NFCE = "update pdv.vendanfce set cofre = 1 where id = ?";
 		
 	ConexaoServidor con = new ConexaoServidor();
