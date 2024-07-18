@@ -24,7 +24,6 @@ import javax.swing.border.EmptyBorder;
 
 import servico.EnviaXML;
 import servico.ServicoConfig;
-import vrrecifeframework.classes.VrProperties;
 
 
 public class Principal extends JFrame {
@@ -77,7 +76,7 @@ public class Principal extends JFrame {
 		minutos = 15;
 		setResizable(false);
 		setAutoRequestFocus(false);
-		setTitle("Sieg - Cofre");
+		setTitle("Sieg - Cofre 1.0.03");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		setBounds(100, 100, 402, 165);

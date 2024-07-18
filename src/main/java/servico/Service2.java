@@ -17,10 +17,10 @@ public class Service2 {
 
 	public JSONObject enviaXML(String xml) {
 		JSONObject retorno = null;
-		String webService = "https://api.sieg.com/aws/api-xml.ashx" + "?apikey=" + Config.siegApikey + "&email="
-				+ Config.siegEmail;
+//		String webService = "https://api.sieg.com/aws/api-xml.ashx" + "?apikey=" + Config.siegApikey + "&email="
+//				+ Config.siegEmail;
 
-//		String webService2 = "https://api.sieg.com/aws/api-xml.ashx?apikey=29CTJBq3LTzI0FISrcy7yw%3d%3d&email=fabio.jorge@vrrecife.com.br";
+		String webService = "https://api.sieg.com/aws/api-xml.ashx?apikey=YEzLyNsCX8SUjSBEWj2BwA%3d%3d&email=ti@bomfimnet.com";
 		OkHttpClient client = new OkHttpClient().newBuilder().build();
 
 		MediaType mediaType = MediaType.parse("application/xml");

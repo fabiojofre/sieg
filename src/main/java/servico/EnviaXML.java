@@ -3,21 +3,16 @@ package servico;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import javax.swing.JOptionPane;
-
-import org.json.JSONObject;
-
 import conexao.ConexaoServidor;
-import util.Util;
 public class EnviaXML {
 	
-	private String NOTASAIDA = "SELECT id, id_situacaonfe,id_notasaida, xml FROM notasaidanfe WHERE id_situacaonfe = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 LIMIT 10";
+	private String NOTASAIDA = "SELECT id, id_situacaonfe,id_notasaida, xml FROM notasaidanfe WHERE id_situacaonfe = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 desc LIMIT 10";
 	private String UPDATE_NOTASAIDA = "update notasaidanfe set cofre = 1 where id = ?";
 	
-	private String NOTAENTRADA = "SELECT id, id_situacaonfe,numeronota, xml FROM notaentradanfe WHERE id_situacaonfe = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 LIMIT 10";
+	private String NOTAENTRADA = "SELECT id, id_situacaonfe,numeronota, xml FROM notaentradanfe WHERE id_situacaonfe = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 desc LIMIT 10";
 	private String UPDATE_NOTAENTRADA = "update notaentradanfe set cofre = 1 where id = ?";
 	
-	private String NFCE ="SELECT id, id_situacaonfce,id_venda, xml FROM pdv.vendanfce WHERE id_situacaonfce = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 DESC LIMIT 10";
+	private String NFCE ="SELECT id, id_situacaonfce,id_venda, xml FROM pdv.vendanfce WHERE id_situacaonfce = 1 AND (cofre = 0 OR cofre is null) ORDER BY 1 desc LIMIT 10";
 	private String UPDATE_NFCE = "update pdv.vendanfce set cofre = 1 where id = ?";
 		
 	ConexaoServidor con = new ConexaoServidor();
@@ -39,11 +34,14 @@ public class EnviaXML {
 			int cont = 0;
 			while(rs.next()){
 			
-				JSONObject msg = service.enviaXML(rs.getString("xml"));	
+				String mensagem = service.enviaXML(rs.getString("xml"));	
 			
-			String mensagem = Util.retornaResultadoConsulta(msg);
+				
+//				
+//			String mensagem = Util.retornaResultadoConsulta(msg);
 			
-			if(mensagem.equals("Importado com sucesso")) {
+			System.out.println(mensagem);
+			if(mensagem.contains("Importado")) {
 				System.out.println("Nota: "+rs.getInt("id_notasaida")+" "+mensagem);
 				
 				stmt_up.setInt(1, rs.getInt("id"));
@@ -54,9 +52,11 @@ public class EnviaXML {
 					 System.out.println("Update Falhou!");
 				 }
 				 cont ++;
+			}else if(mensagem.equals("")) {
+				System.out.println("Retorno: Falha no retono do cliente com a SIEG \nVerifique se o email e(ou) chave etao corretos");
+				System.out.println(mensagem);
 			}else {
 				System.out.println("Retorno: "+mensagem);
-				System.out.println(msg);
 			}
 				
 			}
@@ -68,13 +68,19 @@ public class EnviaXML {
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			if(e.toString().contains("not found")) {
-				JOptionPane.showMessageDialog(null, "Verifique se os dados dos parametros estao corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
-				System.out.println(e);
-				System.exit(0);	
-			}else 
-				System.out.println("WebService temporarialente fora!");
+			System.out.println("Falha temporária na conexão...\n");
+			System.out.print("Tentando reconectar");
+			
+			for (int c = 10; c >= 0; c--) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				System.out.print(".");
+			}
+
 		}
 	}
 		
@@ -91,10 +97,10 @@ public class EnviaXML {
 				int cont = 0;
 				while(rs.next()){
 				
-					JSONObject msg = service.enviaXML(rs.getString("xml"));
+					String mensagem = service.enviaXML(rs.getString("xml"));
 				
-				String mensagem = Util.retornaResultadoConsulta(msg);
-				if(mensagem.equals("Importado com sucesso")) {
+//				String mensagem = Util.retornaResultadoConsulta(msg);
+				if(mensagem.contains("Importado")) {
 					System.out.println("Cupom: "+rs.getInt("id_venda")+" "+mensagem);
 					
 					stmt_up.setInt(1, rs.getInt("id"));
@@ -105,6 +111,9 @@ public class EnviaXML {
 						 System.out.println("Update Falhou!");
 					 }
 					 cont ++;
+				}else if(mensagem.equals("")) {
+					System.out.println("Retorno: Falha no retono do cliente com a SIEG \nVerifique se o email e(ou) chave etao corretos");
+					System.out.println(mensagem);
 				}else {
 					System.out.println("Retorno: "+mensagem);
 				}
@@ -118,13 +127,19 @@ public class EnviaXML {
 				
 			} catch (Exception e)  {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
-				if(e.toString().contains("not found")) {
-					JOptionPane.showMessageDialog(null, "Verifique se os dados dos par�metros est�o corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
-					System.out.println(e);
-					System.exit(0);	
-				}else 
-					System.out.println("WebService temporarialente fora!");
+				System.out.println("Falha temporária na conexão...\n");
+				System.out.print("Tentando reconectar");
+				
+				for (int c = 10; c >= 0; c--) {
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+					System.out.print(".");
+				}
+
 			}
 		
 	}
@@ -141,10 +156,10 @@ public class EnviaXML {
 			int cont = 0;
 			while(rs.next()){
 			
-			JSONObject msg = service.enviaXML(rs.getString("xml"));
+				String mensagem = service.enviaXML(rs.getString("xml"));
 			
-			String mensagem = Util.retornaResultadoConsulta(msg);
-			if(mensagem.equals("Importado com sucesso")) {
+//			String mensagem = Util.retornaResultadoConsulta(msg);
+			if(mensagem.contains("Importado")) {
 				System.out.println("Nota de Entrada: "+rs.getInt("numeronota")+" "+mensagem);
 				
 				stmt_up.setInt(1, rs.getInt("id"));
@@ -155,6 +170,9 @@ public class EnviaXML {
 					 System.out.println("Update Falhou!");
 				 }
 				 cont ++;
+			}else if(mensagem.equals("")) {
+				System.out.println("Retorno: Falha no retono do cliente com a SIEG \nVerifique se o email e(ou) chave etao corretos");
+				System.out.println(mensagem);
 			}else {
 				System.out.println("Retorno: "+mensagem);
 			}
@@ -168,13 +186,19 @@ public class EnviaXML {
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
-			if(e.toString().contains("not found")) {
-				JOptionPane.showMessageDialog(null, "Verifique se os dados dos parametros estao corretos!",  "Erro no retorno do WebService!",JOptionPane.ERROR_MESSAGE );
-				System.out.println(e);
-				System.exit(0);	
-			}else 
-				System.out.println("WebService temporarialente fora!");
+			System.out.println("Falha temporária na conexão...\n");
+			System.out.print("Tentando reconectar");
+			
+			for (int c = 10; c >= 0; c--) {
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				System.out.print(".");
+			}
+
 		}
 	}
 	
